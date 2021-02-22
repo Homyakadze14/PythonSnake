@@ -1,27 +1,24 @@
 import pygame
 from settings import *
-import pyglet
+from player import Player
 
 pygame.init()
-
-#display
 screen = pygame.display.set_mode([WEIGHT, HEIGHT])
-pygame.display.set_caption(caption)
-screen.fill(BLACK)
+pygame.display.set_caption(CAPTION)
+clock = pygame.time.Clock()
+player = Player()
 
-#flip
-pygame.display.flip()
+while RUN:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            RUN = False
 
+    player.movement()
+    screen.fill(BLACK)
 
+    pygame.draw.rect(screen, GREEN, [player.pos, player_size])
 
-#exit and game
-game_run = True
-while game_run:
-    sound = pyglet.media.load('проверка.mp3',)
-    sound.play()
-    pyglet.app.run()
-    for i in pygame.event.get():
-        if i.type == pygame.QUIT:
-            game_run = False
+    pygame.display.flip()
+    clock.tick(FPS)
 
 pygame.quit()
