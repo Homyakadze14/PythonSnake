@@ -1,9 +1,9 @@
 import pygame
-import settings
+from settings import *
 
 pygame.init()
 
-screen = pygame.display.set_mode([settings.Weight, settings.Height])
-pygame.display.set_caption(settings.caption)
+screen = pygame.display.set_mode([WEIGHT, HEIGHT])
+pygame.display.set_caption(caption)
 
 pygame.quit()
