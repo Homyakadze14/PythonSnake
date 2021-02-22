@@ -19,6 +19,7 @@ RED = (255, 0, 0)
 # Player settings
 player_position = (HALF_WEIGHT, HALF_HEIGHT)
 player_size = (30, 30)
+direction = "Up"
 player_speed = 2
 
 # Apple settings

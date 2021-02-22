@@ -21,7 +21,9 @@ while RUN:
     screen.fill(BLACK)
 
     # Player
-    player.movement()
+    player.set_direction()
+    direction = player.dir
+    player.movement(direction)
     pygame.draw.rect(screen, GREEN, [player.pos, player_size])
 
     # Apple
