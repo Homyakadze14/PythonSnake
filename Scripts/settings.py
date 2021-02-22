@@ -11,8 +11,14 @@ FPS = 60
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 244, 0)
+RED = (255, 0, 0)
 
 #Player settings
 player_position = (HALF_WEIGHT, HALF_HEIGHT)
 player_size = (30, 30)
-player_speed = 3
+player_speed = 2
+
+#Apple settings
+apple_position = (HALF_WEIGHT, HALF_HEIGHT - 50)
+apple_size = (30, 30)
+move_distance = 30

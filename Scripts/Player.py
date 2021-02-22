@@ -19,4 +19,3 @@ class Player:
             self.y -= player_speed
         if keys[pygame.K_s] and self.y < HEIGHT - player_size[0]:
             self.y += player_speed
-
