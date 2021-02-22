@@ -1,11 +1,14 @@
+# Imports moduls
 import pygame
 from settings import *
 from player import Player
 from apple import Apple
 
+# Game
 pygame.init()
+
+# Display set
 screen = pygame.display.set_mode([WEIGHT, HEIGHT])
-pygame.display.set_caption(CAPTION)
 clock = pygame.time.Clock()
 player = Player()
 apple = Apple()
@@ -15,18 +18,20 @@ while RUN:
         if event.type == pygame.QUIT:
             RUN = False
 
-    player.movement()
-    distance = apple.distance(player.pos[0], player.pos[1], apple.pos[0], apple.pos[1])
-    apple.move_apple(distance)
-
     screen.fill(BLACK)
 
-    #player
+    # Player
+    player.movement()
     pygame.draw.rect(screen, GREEN, [player.pos, player_size])
 
-    #apple
+    # Apple
+    distance = apple.distance(player.pos[0], player.pos[1], apple.pos[0], apple.pos[1])
+    apple.move_apple(distance)
     pygame.draw.rect(screen, RED, [apple.pos, apple_size])
 
+    # Display update
+    CAPTION = f"Score: {apple.now_score}"
+    pygame.display.set_caption(CAPTION)
     pygame.display.flip()
     clock.tick(FPS)
 

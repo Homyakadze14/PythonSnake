@@ -5,10 +5,15 @@ from settings import *
 class Apple:
     def __init__(self):
         self.x, self.y = apple_position
+        self.score = game_score
 
     @property
     def pos(self):
         return (self.x, self.y)
+
+    @property
+    def now_score(self):
+        return self.score
 
     def distance(self, x1, y1, x2, y2):
         dist = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -18,3 +23,4 @@ class Apple:
         if distance <= move_distance:
             self.x = random.randint(0, HEIGHT - apple_size[0])
             self.y = random.randint(0, HEIGHT - apple_size[0])
+            self.score += 1
